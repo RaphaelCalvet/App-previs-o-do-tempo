@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Sky-inspired weather app theme */
+    --background: 204 100% 97%;
+    --foreground: 215 25% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 20%;
+
+    --primary: 207 90% 54%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 204 45% 88%;
+    --secondary-foreground: 215 25% 20%;
+
+    --muted: 204 30% 92%;
+    --muted-foreground: 215 15% 50%;
+
+    --accent: 43 96% 56%;
+    --accent-foreground: 215 25% 20%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 204 30% 85%;
+    --input: 204 30% 90%;
+    --ring: 207 90% 54%;
+
+    --radius: 1rem;
+
+    /* Custom weather tokens */
+    --sky-gradient-start: 204 100% 88%;
+    --sky-gradient-end: 207 90% 77%;
+    --weather-card-bg: 0 0% 100%;
+    --weather-shadow: 207 50% 70%;
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 215 30% 12%;
+    --foreground: 204 20% 95%;
+
+    --card: 215 25% 16%;
+    --card-foreground: 204 20% 95%;
+
+    --popover: 215 25% 16%;
+    --popover-foreground: 204 20% 95%;
+
+    --primary: 207 90% 61%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 25% 20%;
+    --secondary-foreground: 204 20% 95%;
+
+    --muted: 215 25% 20%;
+    --muted-foreground: 204 15% 65%;
+
+    --accent: 43 96% 56%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 25% 24%;
+    --input: 215 25% 24%;
+    --ring: 207 90% 61%;
+
+    --sky-gradient-start: 215 35% 18%;
+    --sky-gradient-end: 215 30% 25%;
+    --weather-card-bg: 215 25% 16%;
+    --weather-shadow: 215 40% 10%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  .sky-gradient {
+    background: linear-gradient(135deg, hsl(var(--sky-gradient-start)), hsl(var(--sky-gradient-end)));
+  }
+  
+  .weather-card {
+    background: hsl(var(--weather-card-bg));
+    box-shadow: 0 10px 30px -10px hsl(var(--weather-shadow) / 0.3);
+  }
+
+  .smooth-transition {
+    transition: var(--transition-smooth);
+  }
+}
